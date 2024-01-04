@@ -131,7 +131,7 @@ userRouter.get("/logout", authenticator, async (req, res) => {
 userRouter.patch("/products/:id", authenticator, async (req, res) => {
   const { id } = req.params;
   try {
-    await PostModel.findByIdAndUpdate({ _id: id }, req.body);
+    await ProductModel.findByIdAndUpdate({ _id: id }, req.body);
     res.status(200).send({ msg: `Updated Successfully ${id}` });
   } catch (error) {
     res.status(400).send({ error: error });
@@ -141,7 +141,7 @@ userRouter.patch("/products/:id", authenticator, async (req, res) => {
 userRouter.delete("/products/:id", authenticator, async (req, res) => {
   const { id } = req.params;
   try {
-    await PostModel.findByIdAndDelete({ _id: id });
+    await ProductModel.findByIdAndDelete({ _id: id });
     res.status(200).send({ msg: `Product Deleted Successfully ${id}` });
   } catch (error) {
     res.status(400).send({ error: error });
