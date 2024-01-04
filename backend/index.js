@@ -8,7 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api", userRouter);
-
+app.get("/", (req, res) =>{
+res.status(200).send("👉 Api is Running in Renderer 😎")
+})
 
 app.listen(process.env.PORT, async () => {
   try {
